@@ -14,9 +14,6 @@ While 1
 	Sleep(1000)
 WEnd
 
-FAULTY CODE HERE
-
-
 ;>>>> 100% Mana <<<<
 ;Position:	1805, 891
 ;Color:	936344 (Mana Globe Full)
