@@ -1,0 +1,16 @@
+Put those values instead something like "1" or "q"!
+
+301 -> DPAD UP
+302 -> DPAD DOWN
+303 -> DPAD LEFT
+304 -> DPAD RIGHT
+
+401 -> TRIANGLE
+402 -> CIRCLE
+403 -> CROSS
+404 -> SQUARE
+
+501 -> L1
+502 -> R1
+503 -> L2
+504 -> R2

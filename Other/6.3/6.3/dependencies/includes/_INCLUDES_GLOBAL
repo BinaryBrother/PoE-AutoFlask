@@ -1,0 +1,9 @@
+#NoEnv
+#Persistent
+#SingleInstance FORCE
+#MaxThreadsPerHotkey 1
+
+SetWorkingDir %A_ScriptDir%
+SetDefaultMouseSpeed 0
+
+; ----------    GLOBAL INCLUDES    ----------

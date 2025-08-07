@@ -1,0 +1,65 @@
+#Include dependencies\includes\_INCLUDES_GLOBAL
+#NoTrayIcon
+
+; CriticalObject()
+_POEMEMORY := CriticalObject(A_Args.1)
+
+; ----------    THREAD INCLUDES     ----------
+#Include dependencies\includes\_FUNCTIONS.AHK
+global IniFile := A_ScriptDir "\config.ini"
+
+; TICKRATES
+global _TICK_UPDATE_CRITICAL := 25
+global _TICK_UPDATE_WAIT	 := 500
+global _DELAY_PRESS 		 := 30
+
+global _SCRIPT_PLATFORM := 0
+global _SCRIPT_AUTOPOT_VERSION := 0
+
+global _SCRIPT_USE_LOGOUT := 0
+global _SCRIPT_USE_ESCAPE := 0
+global _SCRIPT_DISABLE_HIDEOUT := 0
+
+global _SCRIPT_HP_VALUE := 0
+global _SCRIPT_ES_VALUE := 0
+global _SCRIPT_MP_VALUE := 0
+global _SCRIPT_DC_VALUE := 0
+
+global _SCRIPT_HP_FLASK_CD := 0
+global _SCRIPT_MP_FLASK_CD := 0
+
+global _SCRIPT_HP_FLASK_KEY := ""
+global _SCRIPT_MP_FLASK_KEY := ""
+
+global _SCRIPT_CHARGED_STAFF_KEY := ""
+
+global _SCRIPT_KEYSTATE_THREAD := ""
+
+; ini values
+LoadSettings(){
+    IniRead, _SCRIPT_PLATFORM,        %IniFile%, setup,  platform
+    IniRead, _SCRIPT_AUTOPOT_VERSION, %IniFile%, setup,  autopot_version
+
+    IniRead, _SCRIPT_USE_LOGOUT,       %IniFile%, setup,  use_logout
+    IniRead, _SCRIPT_USE_ESCAPE,       %IniFile%, setup,  use_escape
+    IniRead, _SCRIPT_DISABLE_HIDEOUT,  %IniFile%, setup,  disable_hideout
+    
+    IniRead, _SCRIPT_HP_VALUE,    %IniFile%, values, hp
+    IniRead, _SCRIPT_ES_VALUE,    %IniFile%, values, es
+    IniRead, _SCRIPT_MP_VALUE,    %IniFile%, values, mp
+    IniRead, _SCRIPT_DC_VALUE,    %IniFile%, values, disconnect
+    
+    IniRead, _SCRIPT_HP_FLASK_CD, %IniFile%, cooldown, hp_flask_cd
+    IniRead, _SCRIPT_MP_FLASK_CD, %IniFile%, cooldown, mp_flask_cd
+
+    IniRead, _SCRIPT_HP_FLASK_KEY, %IniFile%, hotkeys, flask_hp
+    IniRead, _SCRIPT_MP_FLASK_KEY, %IniFile%, hotkeys, flask_mp
+
+    IniRead, _SCRIPT_CHARGED_STAFF_KEY, %IniFile%, hotkeys, charged_staff
+
+    IniRead, _SCRIPT_KEYSTATE_THREAD, %IniFile%, setup, use_keystate
+
+    KeyDelayTimes[_SCRIPT_HP_FLASK_KEY] := _SCRIPT_HP_FLASK_CD
+    KeyDelayTimes[_SCRIPT_MP_FLASK_KEY] := _SCRIPT_MP_FLASK_CD
+}
+
