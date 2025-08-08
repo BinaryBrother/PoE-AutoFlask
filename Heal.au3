@@ -11,7 +11,7 @@ Global $gSoundFile = ".\Resources\Action.wav"
 Global $gINI_Path = ".\Resources\Auto.ini"
 
 While 1
-	Sleep(1000)
+	Sleep(100)
 WEnd
 
 ;>>>> 100% Mana <<<<
@@ -27,7 +27,7 @@ Func _RefillMana()
 		_Debug("_RefillMana[" & _GetCurrentTime12Hour() & "]", "Using Mana Potion! Color: " & $iManaColor)
 		IniWrite($gINI_Path, "Mana Flask", _GetCurrentTime12Hour(), $iManaColor)
 		SoundPlay($gSoundFile)
-		Send(String(Random(4, 5, 1)))
+		Send("5")
 		Sleep(2000)
 	EndIf
 EndFunc   ;==>_RefillMana
@@ -46,7 +46,7 @@ Func _Healing()
 		_Debug("_Healing[" & _GetCurrentTime12Hour() & "]", "Using Health Potion! Color: " & $iHealthColor)
 		IniWrite($gINI_Path, "Life Flask", _GetCurrentTime12Hour(), $iHealthColor)
 		SoundPlay($gSoundFile)
-		Send(String(Random(1, 2, 1)))
+		Send(String(Random(1, 3, 1)))
 		Sleep(1000)
 	EndIf
 EndFunc   ;==>_Healing
